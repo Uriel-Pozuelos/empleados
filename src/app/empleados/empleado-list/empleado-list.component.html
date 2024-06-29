@@ -1,0 +1,31 @@
+<div class="container">
+    <table class="table table-info table-striped table-hover">
+        <thead class="text-center">
+            <tr>
+            <th scope="col">Número Empleado</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Teléfono</th>
+            <th scope="col">Fecha Nacimiento</th>
+            <th scope="col">Sexo</th>
+            <th scope="col">Eliminar</th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            <tr *ngFor="let empleado of empleados; let i = index">
+            <td>{{ empleado.numero }}</td>
+            <td>{{ empleado.nombre }}</td>
+            <td>{{ empleado.correo }}</td>
+            <td>{{ empleado.telefono }}</td>
+            <td>{{ empleado.fechaNcimiento | date }}</td>
+            <td>{{ empleado.sexo ? 'Masculino' : 'Femenino' }}</td>
+            <td (click)="deleteEmpleado(i)">
+                <button class="btn btn-link">
+                    <i class="fa-solid fa-trash fa-lg" style="color:red"></i>
+                </button>
+            </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+  

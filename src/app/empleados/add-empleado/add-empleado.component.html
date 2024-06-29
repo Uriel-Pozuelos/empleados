@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="card ">
+        <div class="card-header">
+            <div class="row" (click)="toggleForm()" (mouseenter)="hovering = true" (mouseleave)="hovering = false" [style.cursor]="hovering ? 'pointer' : 'auto'">
+                <div class="col-11">
+                    <h5 class="card-title text-center">Formulario de Empleado</h5>
+                </div>
+                <div class="col-1">
+                    <button class="btn btn-link" >
+                        <i class="fa-solid fa-xl" [ngClass]="{'fa-caret-down': !formVisible, 'fa-caret-up': formVisible}"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="card-body" [hidden]="!formVisible">
+            <form (submit)="agregar()">
+                <div class="mb-3">
+                    <label class="form-label fw-bold" for="numero">Número de Empleado:</label>
+                    <input type="number" class="form-control border border-dark-subtle" [(ngModel)]="empleado.numero" name="numero" id="numero" required>
+
+                    <label class="fw-bold">Nombre:</label>
+                    <input type="text" class="form-control border border-dark-subtle" [(ngModel)]="empleado.nombre" name="nombre" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="fw-bold">Correo:</label>
+                    <input type="email" class="form-control border border-dark-subtle" [(ngModel)]="empleado.correo" name="correo" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="fw-bold">Teléfono:</label>
+                    <input type="number" class="form-control border border-dark-subtle" [(ngModel)]="empleado.telefono" name="telefono" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="fw-bold">Fecha de Nacimiento:</label>
+                    <input type="date" class="form-control border border-dark-subtle" [(ngModel)]="empleado.fechaNcimiento" name="fechaNacimiento" required>
+                </div>
+
+                <div>
+                    <label class="form-label fw-bold">Sexo:</label>
+                </div>
+
+                <div class="mb-3">
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" [(ngModel)]="empleado.sexo" name="sexo" [value]="true" id="masculino">
+                        <label class="form-check-label" for="masculino">Masculino</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" [(ngModel)]="empleado.sexo" name="sexo" [value]="false" id="femenino">
+                        <label class="form-check-label" for="femenino">Femenino</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Agregar</button>
+            </form>
+        </div>
+    </div>
+</div>
